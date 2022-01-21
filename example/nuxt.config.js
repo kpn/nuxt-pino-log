@@ -6,5 +6,20 @@ module.exports = {
   srcDir: __dirname,
   modules: [
     { handler: require('../') }
-  ]
+  ],
+  router: {
+    middleware: ['sample'],
+  },
+  nuxtPinoLog: {
+    serverOptions:{
+      name: 'Logger',
+    },
+    pinoHttpOptions: {
+      serializers: {
+        res: (res) => ({
+          statusCode: res.statusCode,
+        }),
+      }
+    },
+  },
 }
