@@ -22,7 +22,11 @@
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.merge": "^4.6.2",
+    "pino": "^7.6.4",
+    "pino-http": "^6.6.0"
+  },
   "devDependencies": {
     "@babel/core": "latest",
     "@babel/preset-env": "latest",
