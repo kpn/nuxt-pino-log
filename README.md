@@ -19,22 +19,22 @@
 
 ## Setup
 
-1. Add `nuxt-pino-log` dependency to your project
+1. Add `@kpn/nuxt-pino-log` dependency to your project
 
 ```bash
-yarn add nuxt-pino-log # or npm install nuxt-pino-log
+yarn add @kpn/nuxt-pino-log # or npm install @kpn/nuxt-pino-log
 ```
 
-2. Add `nuxt-pino-log` to the `modules` section of `nuxt.config.js`
+2. Add `@kpn/nuxt-pino-log` to the `modules` section of `nuxt.config.js`
 
 ```js
 {
   modules: [
     // Simple usage
-    'nuxt-pino-log',
+    '@kpn/nuxt-pino-log',
 
     // With options
-    ['nuxt-pino-log', { /* module options */ }]
+    ['@kpn/nuxt-pino-log', { /* module options */ }]
   ]
 }
 ```
@@ -135,17 +135,17 @@ nuxtPinoLog: {
 Copyright (c) KPN
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-pino-log/latest.svg
-[npm-version-href]: https://npmjs.com/package/nuxt-pino-log
+[npm-version-src]: https://img.shields.io/npm/v/@kpn/nuxt-pino-log/latest.svg
+[npm-version-href]: https://npmjs.com/package/@kpn/nuxt-pino-log
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-pino-log.svg
-[npm-downloads-href]: https://npmjs.com/package/nuxt-pino-log
+[npm-downloads-src]: https://img.shields.io/npm/dt/@kpn/nuxt-pino-log.svg
+[npm-downloads-href]: https://npmjs.com/package/@kpn/nuxt-pino-log
 
-[github-actions-ci-src]: https://github.com/kpn/nuxt-pino-log/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/kpn/nuxt-pino-log/actions?query=workflow%3Aci
+[github-actions-ci-src]: https://github.com/kpn/kpn/nuxt-pino-log/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/kpn/kpn/nuxt-pino-log/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/github/kpn/nuxt-pino-log.svg
-[codecov-href]: https://codecov.io/gh/kpn/nuxt-pino-log
+[codecov-src]: https://img.shields.io/codecov/c/github/kpn/@kpn/nuxt-pino-log.svg
+[codecov-href]: https://codecov.io/gh/kpn/@kpn/nuxt-pino-log
 
-[license-src]: https://img.shields.io/npm/l/nuxt-pino-log.svg
-[license-href]: https://npmjs.com/package/nuxt-pino-log
+[license-src]: https://img.shields.io/npm/l/@kpn/nuxt-pino-log.svg
+[license-href]: https://npmjs.com/package/@kpn/nuxt-pino-log

@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-pino-log",
+  "name": "@kpn/nuxt-pino-log",
   "version": "0.0.0",
   "description": "Log nuxt apps using pino",
-  "repository": "kpn/nuxt-pino-log",
+  "repository": "kpn/@kpn/nuxt-pino-log",
   "license": "MIT",
   "contributors": [
     {
