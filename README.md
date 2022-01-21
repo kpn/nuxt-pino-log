@@ -15,6 +15,7 @@
 - browser and server support
 - is fast
 - easy to use
+- JSON structured logs
 
 ## Setup
 
