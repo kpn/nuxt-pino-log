@@ -19,7 +19,6 @@
   "scripts": {
     "dev": "nuxt example | pino-pretty",
     "lint": "eslint --ext .js,.vue .",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
   },
   "dependencies": {
@@ -40,8 +39,7 @@
     "husky": "latest",
     "jest": "latest",
     "nuxt-edge": "latest",
-    "pino-pretty": "^7.5.0",
-    "standard-version": "latest"
+    "pino-pretty": "^7.5.0"
   },
   "publishConfig": {
     "access": "public"
