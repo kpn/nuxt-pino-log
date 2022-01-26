@@ -2,7 +2,7 @@
   "commitizen": {
     "name": "cz_conventional_commits",
     "version": "0.1.0",
-    "files": [
+    "version_files": [
       "package.json:version"
     ]
   }
