@@ -2,8 +2,6 @@
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-[![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 
 > Add pinoJS logs to nuxt
@@ -12,9 +10,9 @@
 
 ## Why pinoJS?
 
-- browser and server support
-- is fast
-- easy to use
+- Server and browser support
+- Fast
+- Easy to use and setup
 - JSON structured logs
 
 ## Setup
@@ -22,12 +20,17 @@
 1. Add `nuxt-pino-log` dependency to your project
 
 ```bash
-yarn add nuxt-pino-log # or npm install nuxt-pino-log
+yarn add nuxt-pino-log
+```
+
+```bash
+npm install nuxt-pino-log
 ```
 
 2. Add `nuxt-pino-log` to the `modules` section of `nuxt.config.js`
 
 ```js
+// nuxt.config.js
 {
   modules: [
     // Simple usage
@@ -44,7 +47,10 @@ yarn add nuxt-pino-log # or npm install nuxt-pino-log
 1. In nuxt middleware
 
 ```js
-$logger.info('Logging in middleware')
+export default ({ $logger }) => {
+  // This will be appear in the browser and server terminal
+  $logger.info('Logging in middleware')
+}
 ```
 
 2. In nuxt component, store and pages
@@ -53,9 +59,11 @@ $logger.info('Logging in middleware')
 this.$logger.info('Logging')
 ```
 
+See the [example](./example) folder for more.
+
 ## Configuration
 
-1. Following are the default configurations provided to the loggger:
+1. Following are the default configurations provided to the logger:
 
 ```js
 defaults = {
@@ -94,35 +102,63 @@ nuxtPinoLog: {
 
     clientOptions: {
         // configure pino client with the configrations from https://github.com/pinojs/pino/blob/master/docs/browser.md
+    },
+    serverOptions: {
+      // configure pino server logger with the configrations from https://github.com/pinojs/pino/blob/master/docs/browser.md
+    },
+    // configure `pino-http`, see more https://github.com/pinojs/pino-http
+    pinoHttpOptions: {
+      serializers: {
+        res: (res) => ({
+          statusCode: res.statusCode,
+        }),
+      }
     }
   },
 ```
 
-3. One can pass pino options from https://github.com/pinojs/pino/blob/master/docs/api.md#options as following:
+## Headers redaction
+
+You may want to redact some headers, that you don't want to appear in the logs.
+`nuxt-pino-log` provides a default list that you can use and even extend.
+
+Example:
 
 ```js
-nuxtPinoLog: {
-  serverOptions: {
-      name: 'Nuxt Pino Logger', // this is an example
-  },
-}
-```
+// nuxt.config.js
+const { redactDefault } = require("nuxt-pino-log");
 
-4. One can pass pino-http options from https://github.com/pinojs/pino-http as following:
-
-```js
-nuxtPinoLog: {
-  pinoHttpOptions: {
-    serializers: {
-      res: (res) => ({
-        statusCode: res.statusCode,
-      }),
+module.exports = {
+  nuxtPinoLog: {
+    serverOptions: {
+      name: "Logger",
+      redact: redactDefault,
     }
   }
 }
 ```
 
-## Development
+## Pretty logs
+
+Because the logs are json, during development you may want to make them prettier and
+more developer friendly. You can use `pino-pretty` for that.
+
+```bash
+yarn add --dev pino-pretty
+```
+
+Configure your dev in your `package.json`
+
+```js
+// package.json
+{
+  "scripts": {
+    "dev": "nuxt example | pino-pretty"
+  }
+}
+```
+
+## Contributing
 
 1. Clone this repository
 2. Install dependencies using `yarn install` or `npm install`
@@ -140,12 +176,6 @@ Copyright (c) KPN
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-pino-log.svg
 [npm-downloads-href]: https://npmjs.com/package/nuxt-pino-log
-
-[github-actions-ci-src]: https://github.com/kpn/kpn/nuxt-pino-log/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/kpn/kpn/nuxt-pino-log/actions?query=workflow%3Aci
-
-[codecov-src]: https://img.shields.io/codecov/c/github/kpn/nuxt-pino-log.svg
-[codecov-href]: https://codecov.io/gh/kpn/nuxt-pino-log
 
 [license-src]: https://img.shields.io/npm/l/nuxt-pino-log.svg
 [license-href]: https://npmjs.com/package/nuxt-pino-log
