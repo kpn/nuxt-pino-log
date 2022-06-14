@@ -1,3 +1,11 @@
+## 0.2.1 (2022-06-14)
+
+### Fix
+
+- logger not logging error
+- lint improvements
+- logger not logging error
+
 ## 0.2.0 (2022-01-26)
 
 ### Fix

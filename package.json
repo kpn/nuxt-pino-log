@@ -1,6 +1,6 @@
 {
   "name": "nuxt-pino-log",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Log nuxt apps using pino",
   "repository": "kpn/nuxt-pino-log",
   "license": "MIT",
